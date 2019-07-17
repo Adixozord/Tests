@@ -17,14 +17,16 @@ public class Test2 {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		
 		driver.navigate().to("https://www.staples.co.uk");
-		
+		// find search8ar
 		WebElement search = driver.findElement(By.xpath("//*[@id=\"searchKeywords\"]"));
+		// wait until visi8le
 		wait.until(ExpectedConditions.visibilityOf(search));
+		// type in string in search field
 		search.sendKeys("canon");
-		Thread.sleep(3000);
+		// find the 2nd element of search results
 		WebElement suggestions = driver.findElement(By.xpath("//*[@id=\"SearchSuggestInner\"]/div/div/div[1]/a[2]"));
+		// print its name in console
 		System.out.println(suggestions.getAttribute("keywordtext"));
-	
 		suggestions.click();
 		
 	}
